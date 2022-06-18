@@ -1,5 +1,4 @@
 const { Board } = require("johnny-five");
-const { Potentiometer } = require("./potentiometer")
 const { VolumeDial } = require("./volume-dial")
 
 const board = new Board({
@@ -13,5 +12,8 @@ function onVolumneChange(dial) {
 }
 
 board.on("ready", () => {  
-  new VolumeDial("A0", onVolumneChange)
+  new VolumeDial("A0", onVolumneChange);
+  new VolumeDial("A1", onVolumneChange);
+  new VolumeDial("A2", onVolumneChange);
+  new VolumeDial("A3", onVolumneChange);
 });

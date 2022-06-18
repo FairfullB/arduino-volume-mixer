@@ -7,18 +7,33 @@ class VolumeDial {
       sensorName, 
       () => this.onPotentiometerChange()
     );
+
+    this._potLevel = null;
   }
 
   onPotentiometerChange() {
-    this.normalisedValue = this.potLevel;
-    this.onChange(this)
+    // always run on initial change
+    if (this._potLevel === null) {
+      this._potLevel = this.currentPotLevel;
+      this.normalisedValue = this.currentPotLevel;
+      this.onChange(this);
+    }
+
+    if (Math.abs(this._potLevel - this.currentPotLevel) <= 2) {
+      return;
+    }
+
+    this._potLevel = this.currentPotLevel;
+    this.normalisedValue = this.currentPotLevel;
+
+    this.onChange(this);
   }
   
   get sensorName() {
-    this.potentiometer.sensorName
+    return this.potentiometer.sensorName
   }
 
-  get potLevel() {
+  get currentPotLevel() {
     return this.potentiometer.value
   }
 
