@@ -8,7 +8,7 @@ const board = new Board({
 
 function onVolumneChange(dial) {
   console.log(`Sensor: ${dial.sensorName}`);
-  console.log("  value  : ", dial.potLevel);
+  console.log("  value  : ", dial.normalisedValue);
   console.log("-----------------");
 }
 

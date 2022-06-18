@@ -10,6 +10,7 @@ class VolumeDial {
   }
 
   onPotentiometerChange() {
+    this.normalisedValue = this.potLevel;
     this.onChange(this)
   }
   
@@ -21,12 +22,12 @@ class VolumeDial {
     return this.potentiometer.value
   }
 
-  set steppedValue(value) {
-
+  set normalisedValue(value) {
+    this._normalisedValue = Math.floor(value / 1023 * 100) / 100;
   }
 
-  get steppedValue() {
-    this._steppedValue;
+  get normalisedValue() {
+    return this._normalisedValue;
   }
 }
 
