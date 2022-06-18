@@ -38,7 +38,10 @@ class VolumeDial {
   }
 
   set normalisedValue(value) {
-    this._normalisedValue = Math.floor(value / 1023 * 100) / 100;
+    const normalised =  Math.floor(value / 1023 * 100) / 100;
+  
+    // correct the dial level to left: decrease -> right: increase
+    this._normalisedValue = 1 - normalised;
   }
 
   get normalisedValue() {
