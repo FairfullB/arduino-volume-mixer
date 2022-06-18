@@ -5,9 +5,9 @@ class Potentiometer {
     this.sensorName = sensorName;
     this.sensor = new Sensor(sensorName);
     this.sensorValue = 0;
-    this.onChange = onChange
+    this.onChange = onChange;
 
-    this.setupListener()
+    this.setupListener();
   }
 
   setupListener() {
@@ -17,7 +17,7 @@ class Potentiometer {
   }
 
   get value() {
-    return this.sensor.value
+    return this.sensor.value;
   }
 }
 
