@@ -10,14 +10,14 @@ const Programs = {
 class ProgramVolume {
   constructor(programKey) {
     this.key = programKey;
-    this.programs = this.findProgram(programKey);
+    this.programs = this.findProgram();
   }
 
-  findProgram(programKey) {
-    const processName = Programs[programKey];
+  findProgram() {
+    const processName = Programs[this.key];
 
     if (!processName) {
-      throw Error(`Program key has no matching entry: ${processName}`);
+      throw Error(`Program key has no matching entry: ${this.key}`);
     }
 
     return Mixer
@@ -27,6 +27,18 @@ class ProgramVolume {
 
   setVolume(level) {
     console.log(`Setting ${this.key} to ${level}`);
+
+    // attempt to find the process again if process wasn't when this call initialised
+    if (!this.programs.length) {
+      console.log(`Attempting to re-register process: ${this.key}`)
+      this.programs = this.findProgram();
+    }
+
+    if (!this.programs.length) {
+      console.log(`No process registered for: ${this.key}. Skipping volume set.`);
+      return;
+    }
+
     this.programs.forEach(p => this.setProgramLevel(p, level))
   }
 
