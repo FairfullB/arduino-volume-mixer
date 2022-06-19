@@ -1,5 +1,5 @@
 const { Board } = require("johnny-five");
-const { VolumneController } = require("./volume-controller")
+const VolumneController = require("./volume-controller")
 
 const board = new Board({
   port: "COM3"

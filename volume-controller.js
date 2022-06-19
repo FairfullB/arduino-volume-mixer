@@ -1,5 +1,5 @@
-const { VolumeDial } = require("./volume-dial")
-const { ProgramVolume } = require("./program-volume")
+const VolumeDial = require("./volume-dial")
+const ProgramVolume = require("./program-volume")
 
 class VolumneController {
   constructor(dial, programKey) {
@@ -12,4 +12,4 @@ class VolumneController {
   }
 }
 
-exports.VolumneController = VolumneController;
+module.exports = VolumneController;

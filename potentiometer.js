@@ -21,4 +21,4 @@ class Potentiometer {
   }
 }
 
-exports.Potentiometer = Potentiometer;
+module.exports = Potentiometer;

@@ -1,4 +1,4 @@
-const { Potentiometer } = require('./potentiometer')
+const Potentiometer = require('./potentiometer')
 
 class VolumeDial {
   constructor(sensorName, onChange) {
@@ -49,4 +49,4 @@ class VolumeDial {
   }
 }
 
-exports.VolumeDial = VolumeDial;
+module.exports = VolumeDial;

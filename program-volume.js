@@ -48,4 +48,4 @@ class ProgramVolume {
   }
 }
 
-exports.ProgramVolume = ProgramVolume
+module.exports = ProgramVolume
