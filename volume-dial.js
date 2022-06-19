@@ -19,6 +19,7 @@ class VolumeDial {
       this.onChange(this);
     }
 
+    // ignore noisy sensors jittering +/- 1
     if (Math.abs(this._potLevel - this.currentPotLevel) <= 2) {
       return;
     }

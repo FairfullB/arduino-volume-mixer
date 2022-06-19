@@ -5,6 +5,8 @@ class VolumneController {
   constructor(dial, programKey) {
     this.programVolume = new ProgramVolume(programKey)
     this.volumeDial = new VolumeDial(dial, () => this.updateVolume());
+
+    this.updateVolume();
   }
 
   updateVolume() {
