@@ -1,7 +1,7 @@
 const VolumeDial = require("./volume-dial")
 const ProgramVolume = require("./program-volume")
 
-class VolumneController {
+class VolumeController {
   constructor(dial, programKey) {
     this.programVolume = new ProgramVolume(programKey)
     this.volumeDial = new VolumeDial(dial, () => this.updateVolume());
@@ -14,4 +14,4 @@ class VolumneController {
   }
 }
 
-module.exports = VolumneController;
+module.exports = VolumeController;

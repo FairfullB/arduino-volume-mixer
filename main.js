@@ -1,13 +1,13 @@
 const { Board } = require("johnny-five");
-const VolumneController = require("./volume-controller")
+const VolumeController = require("./volume-controller")
 
 const board = new Board({
   port: "COM3"
 });
 
 board.on("ready", () => {  
-  new VolumneController("A0", "spotify");
-  new VolumneController("A1", "discord");
-  new VolumneController("A2", "rl");
-  new VolumneController("A3", "dota");
+  new VolumeController("A0", "spotify");
+  new VolumeController("A1", "discord");
+  new VolumeController("A2", "rl");
+  new VolumeController("A3", "dota");
 });
